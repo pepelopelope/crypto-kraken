@@ -10,9 +10,19 @@ from graphing import Graph
 try:
     k, pairs = krakenex_data_import()
 
-    app = dash.Dash(__name__, external_stylesheets=[dbc.themes.CYBORG])
+    app = dash.Dash(__name__, external_stylesheets=[dbc.themes.UNITED])
 
     app.layout = html.Div([
+
+
+        html.Div(children=[
+
+            html.Label('Select the average moving'),
+            dcc.Dropdown(options=[{'label': slot, 'value': slot} for slot in [10, 20, 30, 40, 50, 60]],
+                         multi=True, id='average-dropdown'),
+
+        ], style={'padding': 10, 'flex': 1, 'justifyContent': 'left'}),
+
         html.Div(children=[
             html.Label('Select an asset'),
             dcc.Dropdown(options=[{'label': pair, 'value': pair} for pair in pairs], id='demo-dropdown',
@@ -24,21 +34,13 @@ try:
 
         html.Div(children=[
 
-            html.Label('Select the average moving'),
-            dcc.Dropdown(options=[{'label': slot, 'value': slot} for slot in [10, 20, 30, 40, 50, 60]],
-                         multi=True, id='average-dropdown'),
-
-        ], style={'padding': 10, 'flex': 1}),
-
-        html.Div(children=[
-
             html.Label('Select the pair interval'),
             dcc.Dropdown(options=[{'label': interval, 'value': interval} for interval in
                                  [1, 5, 15, 30, 60, 240, 1440, 10080, 21600]], value=60,
                          multi=False, id='interval-dropdown'),
 
-        ], style={'padding': 10, 'flex': 1})
-    ], style={'display': 'flex', 'justifyContent': 'center'})
+        ], style={'padding': 10, 'flex': 1, 'justifyContent': 'right'})
+    ], style={'display': 'flex'})
 
     @app.callback(
         Output('dd-output-container', 'children'),
@@ -61,7 +63,6 @@ try:
 
                 df = StochasticOscillator(df).calculate()
                 
-
                 return html.Div([
                     dcc.Graph(
                         id='example-graph',
