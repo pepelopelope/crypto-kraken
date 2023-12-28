@@ -14,29 +14,6 @@ class Moving_Average:
             print(str(e) + 'has occurred')
             return
 
-class RSI:
-
-    def __init__(self, df):
-        self.df = df
-
-    def calculate(self):
-        try:
-            self.df['diff'] = self.df.close - self.df.open
-            self.df['up'] = self.df['diff'][self.df['diff'] > 0]
-            self.df['down'] = abs(self.df['diff'][self.df['diff'] <= 0])
-            self.df.fillna(value=0, inplace=True)
-
-            self.df['media_up'] = self.df['up'].rolling(window=14).mean()
-            self.df['media_down'] = self.df['down'].rolling(window=14).mean()
-            self.df['RSI'] = 100 - (100 / (1 + (self.df.media_up / self.df.media_down)))
-            self.df.dropna(inplace=True)
-
-            return self.df
-
-        except Exception as e:
-            print(str(e) + 'has occurred')
-            return
-
 class StochasticOscillator:
     def __init__(self, df, n = 14):
         self.df = df
