@@ -27,17 +27,19 @@ class Graph:
                                          open=self.df['open'],
                                          close=self.df['close'],
                                          low=self.df['low'],
-                                         high=self.df['high']),
+                                         high=self.df['high'], name= "Graph 1: Candlestick asset chart"),
                           secondary_y=False,
                           row=1, col=1)
 
             for m in self.value_m:
-                fig.add_trace(go.Scatter(x=self.df.index, y=self.df['moving_average_' + str(m)]), secondary_y=True,
+                fig.add_trace(go.Scatter(x=self.df.index, y=self.df['moving_average_' + str(m)], name= "Graph 1: moving average" + " " + str(m)), secondary_y=True,
                               row=1, col=1)
-                fig.add_trace(go.Scatter(x=self.df.index, y=self.df['moving_average_' + str(m)]), secondary_y=False,
+                fig.add_trace(go.Scatter(x=self.df.index, y=self.df['moving_average_' + str(m)], name= "Graph 3: moving average" + " " + str(m)), secondary_y=False,
                               row=3, col=1)
 
-            fig.add_trace(go.Scatter(x=self.df.index, y=self.df.stochastic_osc, line=dict(color="black")), secondary_y=False,
+            fig.add_trace(go.Scatter(x=self.df.index, y=self.df.stochastic_osc, line=dict(color="green"), name="Graph 2: Stochastic oscilator K%"), secondary_y=False,
+                          row=2, col=1)
+            fig.add_trace(go.Scatter(x=self.df.index, y=self.df.stochastic_osc_ma, line=dict(color="red"), name="Graph 2: Stochastic oscilator D%"), secondary_y=False,
                           row=2, col=1)
             fig.update_xaxes(row=1, col=1, rangeslider_thickness=0.02)
             fig.update_layout(width=1000, height=900)
