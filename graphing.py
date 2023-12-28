@@ -41,11 +41,10 @@ class Graph:
                           row=2, col=1)
             fig.add_trace(go.Scatter(x=self.df.index, y=self.df.stochastic_osc_ma, line=dict(color="red"), name="Graph 2: Stochastic oscilator D%"), secondary_y=False,
                           row=2, col=1)
-            fig.update_xaxes(row=1, col=1, rangeslider_thickness=0.02)
+            fig.update_xaxes(row=1, col=1, rangeslider_thickness=0.05)
             fig.update_layout(width=1000, height=900)
             fig.update_layout(xaxis_showticklabels=True, xaxis2_showticklabels=True)
             return fig
-
         except Exception as e:
             print(str(e) + 'has occurred')
             return

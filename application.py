@@ -36,7 +36,7 @@ try:
 
             html.Label('Select the pair interval'),
             dcc.Dropdown(options=[{'label': interval, 'value': interval} for interval in
-                                 [1, 5, 15, 30, 60, 240, 1440, 10080, 21600]], value=60,
+                                 [1, 5, 15, 30, 60, 240, 1440, 10080, 21600]], value=10080,
                          multi=False, id='interval-dropdown'),
 
         ], style={'padding': 10, 'flex': 1, 'justifyContent': 'right'})
