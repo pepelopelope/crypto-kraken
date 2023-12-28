@@ -1,4 +1,4 @@
-# Crypto-kraken
+# Crypto-Kraken
 
 ## Descripción General
 Esta herramienta está diseñada para analizar datos de criptomonedas, centrándose especialmente en pares de divisas y sus indicadores técnicos. Utiliza la API de Kraken para obtener datos en tiempo real y ofrece gráficos interactivos para visualizar los datos y calcular indicadores técnicos como el Oscilador Estocástico y las Medias Móviles.
@@ -12,25 +12,25 @@ Esta herramienta está diseñada para analizar datos de criptomonedas, centránd
 
 ### Configuración
 
-Clonar el Repositorio (Asumiendo que Git está instalado)
+**1. Clonar el Repositorio (Asumiendo que Git está instalado)**
 
 ```
 git clone 'https://github.com/pepelopelope/crypto-kraken.git'
 cd 'path_del_usuario'
 ```
-Instalar Dependencias
+**2. Instalar Dependencias**
 
 ```
 pip install -r requirements.txt
 ```
 
 ## Ejecución de la Aplicación
-Iniciar la Aplicación Dash
+**1. Iniciar la Aplicación Dash**
 
 ```
 python application.py
 ```
-Acceder a la Interfaz Web
+**2. Acceder a la Interfaz Web**
 
 Abre un navegador web y navega a http://127.0.0.1:8050/ (o la dirección indicada en la terminal).
 
